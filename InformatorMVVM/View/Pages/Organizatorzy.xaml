@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="InformatorMVVM.View.Pages.Organizatorzy"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InformatorMVVM.View.Pages"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="700">
+    <Grid>
+        <ListView
+            x:Name="TableData" 
+            Margin="10,35,10,35"
+            HorizontalAlignment="Center"
+            Width="Auto"
+            Height="Auto"
+            ItemsSource="{Binding OrganizatorzyList}"
+        >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding FKID}" Width="50"/>
+                    <GridViewColumn Header="Organizator" DisplayMemberBinding="{Binding nazwa_organizatora}" Width="200"/>
+                    <GridViewColumn Header="Email" DisplayMemberBinding="{Binding id_konta.email}" Width="200"/>
+                    
+                    <GridViewColumn Header="Edytuj" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edytuj" Click="EditData" CommandParameter="{Binding FKID}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Usun" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Usun" Click="DeleteData" CommandParameter="{Binding FKID}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
+    </Grid>
+</UserControl>

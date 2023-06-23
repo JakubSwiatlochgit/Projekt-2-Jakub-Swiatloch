@@ -1,0 +1,45 @@
+﻿<Window x:Class="InformatorMVVM.View.AppWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformatorMVVM.View"
+        mc:Ignorable="d"
+        Title="Informator" Height="720" Width="1280" MaxHeight="720" MaxWidth="1280" MinWidth="1280" MinHeight="720">
+    <Grid>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="Wyświetl">
+                <MenuItem Header="Pokaż Wydarzenia" Click="ShowWydarzenie"></MenuItem>
+                <MenuItem Header="Pokaż Organizatorow" Click="ShowOrganizatorzy"></MenuItem>
+                <MenuItem Header="Pokaż Kategorie" Click="ShowKategorie"></MenuItem>
+                <MenuItem Header="Pokaż Uzytkownicy" Click="ShowUzytkownicy"></MenuItem>
+                <MenuItem Header="Pokaż Rezerwacje" Click="ShowRezerwacje"></MenuItem>
+                <MenuItem Header="Pokaż Oceny" Click="ShowOcenyUzytkownikow"></MenuItem>
+                <MenuItem Header="Pokaż Konta" Click="ShowTabelaKont"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Wydarzenie">
+                <MenuItem Header="Add" Click="ShowWydarzenieAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Organizator">
+                <MenuItem Header="Add" Click="ShowOrganizatorAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Kategoria">
+                <MenuItem Header="Add" Click="ShowKategoriaAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Uzytkownik">
+                <MenuItem Header="Add" Click="ShowUzytkownikAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Rezerwacja">
+                <MenuItem Header="Add" Click="ShowRezerwacjaAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Oceny Uzytkownikow">
+                <MenuItem Header="Add" Click="ShowOcenyUzytkownikowAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tabela Kont">
+                <MenuItem Header="Add" Click="ShowTabelaKontAdd"></MenuItem>
+            </MenuItem>
+        </Menu>
+
+        <ContentControl x:Name="contentControl"/>
+    </Grid>
+</Window>

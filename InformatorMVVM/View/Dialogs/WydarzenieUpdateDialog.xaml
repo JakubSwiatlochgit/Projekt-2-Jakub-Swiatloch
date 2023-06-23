@@ -1,0 +1,109 @@
+﻿<Window x:Class="InformatorMVVM.View.Dialogs.WydarzenieUpdateDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InformatorMVVM.View.Dialogs"
+        mc:Ignorable="d"
+        Title="WydarzenieEditDialog" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Margin" Value="0,3,5,5" />
+            <Setter Property="Padding" Value="0,0,0,5" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="0,0,0,5" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="BorderBrush" Value="#CBCCFF" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Padding" Value="5" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="0,0,0,5" />
+            <Setter Property="Foreground" Value="#333333" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="BorderBrush" Value="#CCCCCC" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="BorderBrush" Value="#CBCCFF" />
+            <Setter Property="BorderThickness" Value="2" />
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="90" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Margin" Value="5,0,0,0" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Background" Value="#007ACC" />
+            <Setter Property="BorderBrush" Value="#007ACC" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid Margin="10">
+        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0">Nazwa:</Label>
+        <TextBox Name="wydarzenieNazwa" Grid.Column="1" Grid.Row="0"/>
+
+        <Label Grid.Column="0" Grid.Row="1">Opis:</Label>
+        <TextBox Name="wydarzenieOpis" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" />
+
+        <Label Grid.Column="0" Grid.Row="2">Rozpoczecie:</Label>
+        <TextBox Name="wydarzenieDataIGodzinaRozpoczecia" Grid.Column="1" Grid.Row="2" />
+        
+        <Label Grid.Column="0" Grid.Row="3">Zakonczenie:</Label>
+        <TextBox Name="wydarzenieDataIGodzinaZakoncznia" Grid.Column="1" Grid.Row="3" />
+
+        <Label Grid.Column="0" Grid.Row="4" >Kategoria:</Label>
+        <ComboBox Name="wydarzenieKategoria" Grid.Column="1" Grid.Row="4" DisplayMemberPath="nazwa_kategorii" SelectedValue="{Binding id_kategorii.FKID}" />
+
+        <Label Grid.Column="0" Grid.Row="5" >Organizator:</Label>
+        <ComboBox Name="wydarzenieOrganizator" Grid.Column="1" Grid.Row="5" DisplayMemberPath="nazwa_organizatora" SelectedValue="{Binding id_organizatora.FKID}" />
+
+
+
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="okButton" Click="EditWydarzenie">Edit</Button>
+            <Button Background="MediumVioletRed" Name="cancelButton" IsCancel="True">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
